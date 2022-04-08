@@ -1,0 +1,23 @@
+{
+  "name": "line-reader",
+  "version": "1.0.0",
+  "description": "LINE bot that returns the audio file of users' incoming texts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MakotoNakai/LINE-reader.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MakotoNakai/LINE-reader/issues"
+  },
+  "homepage": "https://github.com/MakotoNakai/LINE-reader#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
