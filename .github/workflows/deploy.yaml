@@ -18,4 +18,4 @@ jobs:
         run: |
           touch .env
           echo CHANNEL_ACCESS_TOKEN=${{secrets.CHANNEL_ACCESS_TOKEN}} >> .env
-          echo CHANNEL_SECRET=${{secrets.CHANNEL_SECRET}}
+          echo CHANNEL_SECRET=${{secrets.CHANNEL_SECRET}} >> .env
