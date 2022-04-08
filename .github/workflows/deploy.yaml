@@ -20,3 +20,6 @@ jobs:
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}} #Must be unique in Heroku
           heroku_email: ${{secrets.HEROKU_EMAIL_ADDRESS}}
           procfile: "web: node ./index.js"
+        env:
+          HD_CHANNEL_ACCESS_TOKEN: ${{secrets.CHANNEL_ACCESS_TOKEN}}
+          HD_CHANNEL_SECRET: ${{secrets.CHANNEL_SECRET}}
