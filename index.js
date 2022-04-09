@@ -23,6 +23,7 @@ app.post('/callback', line.middleware(config), (req, res) => {
   Promise
     .all(req.body.events.map(handleEvent))
     .then((result) => {
+      console.log(req.headers['x-line-signature']);
       const signature = crypto.createHmac('SHA256', process.env.LINE_CHANNEL_SECRET).update(req.body).digest('base64').toString();
       if (signature !== req.headers['x-line-signature']) {
         return res.status(401).send('Unauthorized');
