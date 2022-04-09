@@ -2,6 +2,7 @@
 
 const line = require('@line/bot-sdk');
 const express = require('express');
+const crypto = require('crypto');
 
 // create LINE SDK config from env variables
 const config = {
@@ -22,7 +23,10 @@ app.post('/callback', line.middleware(config), (req, res) => {
   Promise
     .all(req.body.events.map(handleEvent))
     .then((result) => {
-      res.status(200);
+      const signature = crypto.createHmac('SHA256', process.env.LINE_CHANNEL_SECRET).update(req.body).digest('base64').toString();
+      if (signature !== req.headers['x-line-signature']) {
+        return res.status(401).send('Unauthorized');
+      }
       res.json(result);
     })
     .catch((err) => {
